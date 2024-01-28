@@ -1,0 +1,13 @@
+{% extends 'processusspecific/Base.html' %}
+
+{% block title %}Processus Specific Details{% endblock %}
+
+{% block content %}
+    <h2>{{ processusspecific }}</h2>
+    <!-- Display other details as needed -->
+
+    <a href="{% url 'processusspecific_update' pk=processusspecific.pk %}">Edit</a>
+    <a href="{% url 'processusspecific_delete' pk=processusspecific.pk %}">Delete</a>
+    <a href="{% url 'processusspecific_list' %}">Back to Processus Specific List</a>
+
+{% endblock %}

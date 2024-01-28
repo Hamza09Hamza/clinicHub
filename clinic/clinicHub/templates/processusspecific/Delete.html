@@ -1,0 +1,13 @@
+{% extends 'processusspecific/Base.html' %}
+
+{% block title %}Delete Processus Specific{% endblock %}
+
+{% block content %}
+    <h2>Delete Processus Specific</h2>
+    <p>Are you sure you want to delete "{{ processusspecific }}"?</p>
+    <form method="post" action="{% url 'processusspecific_delete' pk=processusspecific.pk %}">
+        {% csrf_token %}
+        <button type="submit">Delete</button>
+    </form>
+    <a href="{% url 'processusspecific_list' %}">Cancel</a>
+{% endblock %}

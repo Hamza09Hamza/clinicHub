@@ -1,0 +1,96 @@
+<!-- observation_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Observation List</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+      }
+
+      header {
+        background-color: #3498db;
+        color: #ecf0f1;
+        text-align: center;
+        padding: 15px;
+        border-bottom: 2px solid #2980b9;
+      }
+
+      h2 {
+        background-color: #3498db;
+        color: #ecf0f1;
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      li {
+        background-color: #ecf0f1;
+        margin-bottom: 10px;
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      a {
+        text-decoration: none;
+        color: #3498db;
+        font-weight: bold;
+        transition: color 0.3s;
+      }
+
+      a:hover {
+        color: #2980b9;
+      }
+
+      .add-link {
+        background-color: #2ecc71;
+        color: #ecf0f1;
+        padding: 15px;
+        text-decoration: none;
+        border-radius: 5px;
+        display: inline-block;
+        margin-top: 20px;
+        text-align: center;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .add-link:hover {
+        background-color: #27ae60;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h2>Observation List</h2>
+    </header>
+
+    <ul>
+      {% for observation in observations %}
+      <li>
+        <a href="{% url 'observation_detail' pk=observation.pk %}"
+          >{{ observation }}</a
+        >
+      </li>
+      {% endfor %}
+    </ul>
+
+    <a class="add-link" href="{% url 'create_observation' %}"
+      >Add Observation</a
+    >
+  </body>
+</html>

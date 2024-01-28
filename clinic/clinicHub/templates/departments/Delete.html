@@ -1,0 +1,67 @@
+<!-- patient_delete.html -->
+{% extends 'departments/Departement.html' %} {% block title %}Delete
+Department{% endblock %} {% block content %}
+<style>
+  body {
+    font-family: "Arial", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+
+  header {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    text-align: center;
+    padding: 1em 0;
+  }
+
+  h2 {
+    background-color: #e74c3c;
+    color: #ecf0f1;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+
+  p {
+    margin-bottom: 20px;
+  }
+
+  form {
+    background-color: #2c3e50;
+    border: 1px solid #34495e;
+    border-radius: 5px;
+    padding: 20px;
+    display: inline-block;
+  }
+
+  form button {
+    background-color: #e74c3c;
+    color: #ecf0f1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .cancel-link {
+    display: inline-block;
+    margin-left: 10px;
+    color: #3498db;
+    text-decoration: none;
+  }
+</style>
+
+<h2>{% block header %}Delete Department{% endblock %}</h2>
+
+<p>Are you sure you want to delete {{ department.NomDepartement }}?</p>
+
+<form method="post" action="{% url 'department_delete' pk=department.pk %}">
+  {% csrf_token %}
+  <button type="submit">Delete</button>
+</form>
+
+<a class="cancel-link" href="{% url 'department_list' %}">Cancel</a>
+{% endblock %}

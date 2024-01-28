@@ -1,0 +1,77 @@
+<!-- templates/patient_list.html -->
+{% extends 'patients/Patients.html' %} Patient List {% block content %}
+<style>
+  body {
+    font-family: "Arial", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+
+  header {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    text-align: center;
+    padding: 1em 0;
+  }
+
+  h1 {
+    background-color: #3498db;
+    color: #ecf0f1;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2em;
+  }
+
+  .button {
+    background-color: #3498db;
+    color: #ecf0f1;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+
+  .patient-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .patient-list li {
+    background-color: #2c3e50;
+    border: 1px solid #34495e;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 10px;
+  }
+
+  .patient-list a {
+    text-decoration: none;
+    color: #ecf0f1;
+    font-weight: bold;
+  }
+
+  .patient-list a:hover {
+    color: #3498db;
+  }
+</style>
+
+<h1>{% block header %}Patient List{% endblock %}</h1>
+
+<a class="button" href="{% url 'create_patient' %}">Add Patient</a>
+
+<ul class="patient-list">
+  {% for patient in patients %}
+  <li><a href="{% url 'patient_detail' pk=patient.pk %}">{{ patient }}</a></li>
+  {% endfor %}
+</ul>
+{% endblock %}

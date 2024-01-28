@@ -1,0 +1,83 @@
+<!-- edit_dossiermedical.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Dossier Medical</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+      }
+
+      header {
+        background-color: #3498db;
+        color: #ecf0f1;
+        text-align: center;
+        padding: 15px;
+        border-bottom: 2px solid #2980b9;
+      }
+
+      h2 {
+        background-color: #3498db;
+        color: #ecf0f1;
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      form {
+        background-color: #ecf0f1;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      button {
+        background-color: #2ecc71;
+        color: #ecf0f1;
+        padding: 10px;
+        text-decoration: none;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        margin-right: 10px;
+      }
+
+      button:hover {
+        background-color: #27ae60;
+      }
+
+      a {
+        color: #3498db;
+        text-decoration: none;
+        font-weight: bold;
+        display: inline-block;
+        margin-top: 10px;
+        text-align: center;
+        transition: color 0.3s;
+      }
+
+      a:hover {
+        color: #2980b9;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h2>Edit Dossier Medical</h2>
+    </header>
+
+    <form method="post">
+      {% csrf_token %} {{ form.as_p }}
+      <button type="submit">Save changes</button>
+      <a href="{% url 'dossiermedical_list' %}">Back to Dossier Medical List</a>
+    </form>
+  </body>
+</html>

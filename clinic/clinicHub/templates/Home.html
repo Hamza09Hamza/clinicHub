@@ -1,0 +1,91 @@
+<!-- base.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ClinicHub</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+      }
+
+      header {
+        background-color: #2c3e50;
+        color: #ecf0f1;
+        text-align: center;
+        padding: 1em 0;
+      }
+
+      nav {
+        background-color: #34495e;
+        color: #ecf0f1;
+        padding: 1em;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+      }
+
+      .nav-item {
+        background-color: #2c3e50;
+        border: 1px solid #34495e;
+        border-radius: 5px;
+        margin: 5px;
+        padding: 10px;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: #ecf0f1;
+        font-weight: bold;
+      }
+
+      nav a:hover {
+        color: #3498db;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2em;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Welcome to ClinicHub</h1>
+    </header>
+
+    <nav>
+      <div class="nav-item">
+        <a href="{% url 'patient_list' %}">Patients</a>
+      </div>
+      <div class="nav-item"><a href="{% url 'doctor_list' %}">Doctors
+        
+      </a>
+      </div>
+      <div class="nav-item">
+        <a href="{% url 'department_list' %}">Departments</a>
+      </div>
+      <div class="nav-item">
+        <a href="{% url 'rendezvous_list' %}">Rendezvous</a>
+      </div>
+      <div class="nav-item">
+        <a href="{% url 'observation_list' %}">Observations</a>
+      </div>
+      <div class="nav-item">
+        <a href="{% url 'dossiermedical_list' %}">Dossier Medicals</a>
+      </div>
+      <div class="nav-item">
+        <a href="{% url 'processusspecific_list' %}">processus specific</a>
+      </div>
+      <!-- Add more links for other classes as needed -->
+    </nav>
+
+    <div class="container">{% block content %} {% endblock %}</div>
+  </body>
+</html>

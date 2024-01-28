@@ -1,0 +1,93 @@
+<!-- delete_dossiermedical.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delete Dossier Medical</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+      }
+
+      header {
+        background-color: #e74c3c;
+        color: #ecf0f1;
+        text-align: center;
+        padding: 15px;
+        border-bottom: 2px solid #c0392b;
+      }
+
+      h2 {
+        background-color: #e74c3c;
+        color: #ecf0f1;
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      p {
+        background-color: #ecf0f1;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      form {
+        text-align: center;
+      }
+
+      button {
+        background-color: #c0392b;
+        color: #ecf0f1;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: #992d22;
+      }
+
+      a {
+        color: #3498db;
+        text-decoration: none;
+        font-weight: bold;
+        display: inline-block;
+        margin-top: 10px;
+        text-align: center;
+        transition: color 0.3s;
+        margin-right: 10px;
+      }
+
+      a:hover {
+        color: #2980b9;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h2>Delete Dossier Medical</h2>
+    </header>
+
+    <p>Are you sure you want to delete "{{ dossiermedical }}"?</p>
+
+    <form
+      method="post"
+      action="{% url 'delete_dossiermedical' pk=dossiermedical.pk %}"
+    >
+      {% csrf_token %}
+      <button type="submit">Delete</button>
+    </form>
+
+    <a href="{% url 'dossiermedical_list' %}">Cancel</a>
+  </body>
+</html>

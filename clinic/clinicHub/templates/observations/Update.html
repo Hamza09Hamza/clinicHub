@@ -1,0 +1,103 @@
+<!-- observation_update.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Observation</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+      }
+
+      header {
+        background-color: #3498db;
+        color: #ecf0f1;
+        text-align: center;
+        padding: 15px;
+        border-bottom: 2px solid #2980b9;
+      }
+
+      h2 {
+        background-color: #3498db;
+        color: #ecf0f1;
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      form {
+        background-color: #ecf0f1;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+
+      button {
+        background-color: #2ecc71;
+        color: #ecf0f1;
+        padding: 10px;
+        text-decoration: none;
+        border: none;
+        border-radius: 5px;
+        display: inline-block;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: #27ae60;
+      }
+
+      .back-link {
+        color: #3498db;
+        text-decoration: none;
+        font-weight: bold;
+        display: block;
+        margin-top: 10px;
+        transition: color 0.3s;
+      }
+
+      .back-link:hover {
+        color: #2980b9;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h2>Edit Observation</h2>
+    </header>
+
+    <form
+      method="post"
+      action="{% url 'observation_update' pk=observation.pk %}"
+    >
+      {% csrf_token %} {{ form.as_p }}
+      <button type="submit">Update</button>
+    </form>
+
+    <a class="back-link" href="{% url 'observation_list' %}"
+      >Back to Observation List</a
+    >
+  </body>
+</html>
