@@ -24,6 +24,18 @@ class DossierMedicalForm(forms.ModelForm):
         fields = '__all__'
 
       # Disable the patient field for editing
+    def clean(self):
+        cleaned_data = super().clean()
+        patient = cleaned_data.get('Patient')
+        observations = cleaned_data.get('Observations')
+
+        # Ensure that all observations belong to the selected patient's rendezvous
+        for observation in observations.all():
+            if observation.Rendez_Vous.Patient != patient:
+                raise forms.ValidationError("Observations must belong to the selected patient's rendezvous.")
+
+        return cleaned_data
+
 
 
 
@@ -37,6 +49,7 @@ class ObservationForm(forms.ModelForm):
     class Meta:
         model = Observation
         fields = '__all__'
+        
 
 
 class DepartementForm(forms.ModelForm):

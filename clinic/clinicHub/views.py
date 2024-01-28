@@ -214,47 +214,47 @@ class ProcessusSpecificView(viewsets.ModelViewSet):
 
 class PatientCRUDView(View):
     def patient_list(request):
-        template_list = 'patients/PatientList.html'
+        template_list = 'patients/List.html'
         patients = Patient.objects.all()
         return render(request, template_list, {'patients': patients})
 
     def patient_detail(request, pk):
-        template_detail = 'patients/PatientDetails.html'
+        template_detail = 'patients/Details.html'
         patient = get_object_or_404(Patient, pk=pk)
         return render(request, template_detail, {'patient': patient})
 
     def create_patient(request):
-        template_create = 'patients/PatientCreate.html'
+        template_create = 'patients/Create.html'
         form = PatientForm()
         if request.method == 'POST':
             form = PatientForm(request.POST)
             if form.is_valid():
                 form.save()
-                return redirect('patients/PatientList')
+                return redirect('patient_list')
         else:
             form = PatientForm()
 
         return render(request, template_create, {'form': form})
 
     def patient_update(request, pk):
-        template_update = 'patients/PatientUpdate.html'
+        template_update = 'patients/Update.html'
         patient = get_object_or_404(Patient, pk=pk)
         form = PatientForm(instance=patient)
         if request.method == 'POST':
             form = PatientForm(request.POST, instance=patient)
         if form.is_valid():
             form.save()
-            return redirect('patients/PatientList')  
+            return redirect('patient_list')  
         else:
             form = PatientForm(instance=patient)
         return render(request, template_update, {'form': form, 'patient': patient})
 
     def patient_delete(request, pk):
-        template_delete = 'patients/PatientDelete.html'
+        template_delete = 'patients/Delete.html'
         patient = get_object_or_404(Patient, pk=pk)
         if request.method == 'POST':
             patient.delete()
-            return redirect('patients/PatientList')  
+            return redirect('patient_list')  
 
         return render(request, template_delete, {'patient': patient})
 
@@ -525,5 +525,5 @@ class DossierMedicalCRUDView(View):
         return render(request, template_delete, {'dossiermedical': dossiermedical})
 
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'Home.html')
 

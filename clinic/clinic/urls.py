@@ -33,9 +33,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
    
-    path('patients/', views.PatientCRUDView.patient_list, name='PatientList'),
-    path('patients/<int:pk>/', views.PatientCRUDView.patient_detail, name='PatientDetails'),
-    path('patient/create/', views.PatientCRUDView.create_patient, name='PatientCreate'),
+    path('patients/', views.PatientCRUDView.patient_list, name='patient_list'),
+    path('patients/<int:pk>/', views.PatientCRUDView.patient_detail, name='patient_detail'),
+    path('patient/create/', views.PatientCRUDView.create_patient, name='create_patient'),
     path('patients/<int:pk>/update/', views.PatientCRUDView.patient_update, name='patient_update'),
     path('patients/<int:pk>/delete/', views.PatientCRUDView.patient_delete, name='patient_delete'),
     

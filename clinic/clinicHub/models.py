@@ -58,7 +58,7 @@ class Observation(models.Model):
         Description=models.CharField(max_length=(50))
         Rendez_Vous = models.OneToOneField(Rendez_Vous, on_delete=models.CASCADE)
         def __str__(self):
-            return ' Observation du RendezVous: '+self.Rendez_Vous.Titre+' avec Dr.'+self.Rendez_Vous.Medecin.Nom
+            return ' Observation du RendezVous: '+self.Rendez_Vous.Titre+' de  '+self.Rendez_Vous.Patient.Nom+' avec Dr.'+self.Rendez_Vous.Medecin.Nom
     
         
 class DossierMedical(models.Model):
