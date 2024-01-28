@@ -1,0 +1,11 @@
+{% extends 'dossiermedical/base.html' %}
+
+{% block content %}
+  <h2>Edit Dossier Medical</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save changes</button>
+    <a href="{% url 'dossiermedical_list' %}">Back to Rendezvous List</a>
+  </form>
+{% endblock %}

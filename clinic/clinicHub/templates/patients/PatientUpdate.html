@@ -1,0 +1,12 @@
+<!-- patient_update.html -->
+{% extends 'patients/Patients.html' %}
+
+{% block content %}
+  <h2>Edit Patient</h2>
+  <form method="post" action="{% url 'patient_update' pk=patient.pk %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Update</button>
+  </form>
+  <a href="{% url 'PatientList' %}">Back to Patient List</a>
+{% endblock %}

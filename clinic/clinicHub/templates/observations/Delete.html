@@ -1,0 +1,14 @@
+<!-- patient_delete.html -->
+{% extends 'observations/base.html' %}
+
+{% block title %}Delete Rendezvous{% endblock %}
+    
+{% block content %}
+  <h2>Delete Observation</h2>
+  <p>Are you sure you want to delete this observation?</p>
+  <form method="post" action="{% url 'observation_delete' pk=observation.pk %}">
+    {% csrf_token %}
+    <button type="submit">Delete</button>
+  </form>
+  <a href="{% url 'observation_list' %}">Cancel</a>
+{% endblock %}

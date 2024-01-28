@@ -1,0 +1,16 @@
+<!-- templates/patient_detail.html -->
+{% extends 'observations/base.html' %}
+
+
+
+{% block content %}
+  <h2>Observation Detail</h2>
+  <p><strong>Description:</strong> {{ observation.Description }}</p>
+  <p><strong>Rendez-Vous:</strong> {{ observation.Rendez_Vous }}</p>
+
+
+  <a href="{% url 'observation_update' pk=observation.pk %}">Edit</a>
+  <a href="{% url 'observation_delete' pk=observation.pk %}">Delete</a>
+
+  <a href="{% url 'observation_list' %}">Back to Observation List</a>
+{% endblock %}

@@ -1,0 +1,12 @@
+<!-- patient_delete.html -->
+{% extends 'patients/Patients.html' %}
+
+{% block content %}
+  <h2>Delete Patient</h2>
+  <p>Are you sure you want to delete patient "{{ patient }}"?</p>
+  <form method="post" action="{% url 'patient_delete' pk=patient.pk %}">
+    {% csrf_token %}
+    <button type="submit">Delete</button>
+  </form>
+  <a href="{% url 'PatientList' %}">Cancel</a>
+{% endblock %}

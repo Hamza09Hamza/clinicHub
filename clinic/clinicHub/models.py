@@ -56,14 +56,14 @@ class Rendez_Vous(models.Model):
 class Observation(models.Model):
         ID_Observation = models.AutoField(primary_key=True)
         Description=models.CharField(max_length=(50))
-        Rendez_Vous = models.ForeignKey(Rendez_Vous, on_delete=models.CASCADE)
+        Rendez_Vous = models.OneToOneField(Rendez_Vous, on_delete=models.CASCADE)
         def __str__(self):
-            return ' Observation du Rendez_Vous: '+self.Rendez_Vous.Titre+' avec Dr.'+self.Rendez_Vous.Medecin.Nom
+            return ' Observation du RendezVous: '+self.Rendez_Vous.Titre+' avec Dr.'+self.Rendez_Vous.Medecin.Nom
     
         
 class DossierMedical(models.Model):
     ID_Dossier = models.AutoField(primary_key=True)
-    Patient = models.ForeignKey(Patient,on_delete=models.CASCADE)
+    Patient = models.OneToOneField(Patient,on_delete=models.CASCADE)
     DateCreation = models.DateField(auto_now_add=True, null=True, blank=True)
     Observations = models.ManyToManyField(Observation, blank=True)
     def __str__(self):

@@ -1,0 +1,15 @@
+{% extends 'dossiermedical/base.html' %}
+
+{% block content %}
+  <h2>Dossier Medical List</h2>
+  <ul>
+    {% for dossiermedical in dossiermedicals %}
+      <li>
+        <a href="{% url 'dossiermedical_detail' pk=dossiermedical.pk %}">{{ dossiermedical }}</a>
+        
+      </li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'create_dossiermedical' %}">Add Dossier Medical</a>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+<!-- templates/patient_detail.html -->
+{% extends 'departments/Departement.html' %}
+
+
+{% block title %}Department Details{% endblock %}
+
+{% block content %}
+    <h2>{{ department }}</h2>
+
+    <a href="{% url 'department_list' %}">Back to Department List</a>
+    <a href="{% url 'department_update' pk=department.pk %}">Edit</a>
+    <a href="{% url 'department_delete' pk=department.pk %}">Delete</a>
+{% endblock %}

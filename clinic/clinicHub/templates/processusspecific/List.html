@@ -1,0 +1,16 @@
+{% extends 'processusspecific/Base.html' %}
+
+{% block title %}Processus Specific List{% endblock %}
+
+{% block content %}
+    <ul>
+        {% for processus_specific in processusspecifics %}
+            <li>
+                <a href="{% url 'processusspecific_detail' pk=processus_specific.pk %}">{{ processus_specific }}</a>
+                
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'create_processusspecific' %}">Add processus Specific</a>
+
+{% endblock %}

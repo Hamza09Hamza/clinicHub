@@ -1,0 +1,14 @@
+<!-- templates/patient_list.html -->
+{% extends 'patients/Patients.html' %}
+
+{% block title %}Patient List{% endblock %}
+
+{% block content %}
+    <a href="{% url 'PatientCreate' %}">Add Patient</a>
+
+    <ul>
+        {% for patient in patients %}
+            <li><a href="{% url 'PatientDetails' pk=patient.pk %}">{{ patient }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,15 @@
+<!-- create_patient.html -->
+
+{% extends 'rendezvous/RendezVous.html' %}
+{% block title %}Create Rendezvous{% endblock %}
+
+{% block content %}
+    <h2>Create a New Rendezvous</h2>
+    <form method="post" action="{% url 'create_rendezvous' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+    <br>
+    <a href="{% url 'rendezvous_list' %}">Back to Rendezvous List</a>
+{% endblock %}

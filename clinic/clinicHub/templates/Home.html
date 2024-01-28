@@ -1,0 +1,27 @@
+<!-- base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> ClinicHub </title>
+</head>
+<body>
+
+    <h1>Welcome to the  ClinicHub</h1>
+
+    <ul>
+        <li><a href="{% url 'PatientList' %}">Patients</a></li>
+        <li><a href="{% url 'doctor_list' %}">Doctors</a></li>
+        <li><a href="{% url 'department_list' %}">Departments</a></li>
+        <li><a href="{% url 'rendezvous_list' %}">Rendezvous</a></li>
+        <li><a href="{% url 'observation_list' %}">Observations</a></li>
+        <li><a href="{% url 'dossiermedical_list' %}">Dossier Medicals</a></li>
+        <!-- Add more links for other classes as needed -->
+    </ul>
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>

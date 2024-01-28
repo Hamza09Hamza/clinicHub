@@ -1,0 +1,14 @@
+<!-- templates/patient_list.html -->
+{% extends 'Medecin/Medecin.html' %}
+
+{% block title %}Doctor List{% endblock %}
+
+{% block content %}
+    <h2>Doctor List</h2>
+    <ul>
+        {% for doctor in doctors %}
+            <li><a href="{% url 'doctor_detail' pk=doctor.pk %}">{{ doctor }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'create_doctor' %}">Add Doctor</a>
+{% endblock %}
