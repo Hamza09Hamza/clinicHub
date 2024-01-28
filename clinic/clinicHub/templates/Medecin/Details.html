@@ -1,4 +1,5 @@
 <!-- templates/patient_detail.html -->
+<<<<<<< HEAD
 {% extends 'Medecin/Medecin.html' %} Doctor Details {% block content %}
 <style>
   body {
@@ -60,3 +61,16 @@
   <a class="back-link" href="{% url 'doctor_list' %}">Back to Doctor List</a>
 </div>
 {% endblock %}
+=======
+{% extends 'Medecin/Medecin.html' %}
+
+{% block title %}Doctor Details{% endblock %}
+
+{% block content %}
+    <h2>{{ doctor }}</h2>
+    <p> {{ doctor.Departement }}</p>
+    <a href="{% url 'doctor_update' pk=patient.pk %}">Edit</a>
+    <a href="{% url 'doctor_delete' pk=patient.pk %}">Delete</a>
+    <a href="{% url 'doctor_list' %}">Back to Doctor List</a>
+{% endblock %}
+>>>>>>> origin/main

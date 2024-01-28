@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!-- rendezvous_detail.html -->
 <style>
   body {
@@ -65,3 +66,22 @@
 <a class="delete-link" href="{% url 'rendezvous_delete' pk=RendezVous.pk %}"
   >Delete</a
 >
+=======
+<!-- templates/patient_detail.html -->
+{% extends 'rendezvous/RendezVous.html' %}
+
+
+{% block title %}Rendezvous Details{% endblock %}
+
+{% block content %}
+    <h2>{{ RendezVous.Titre }}</h2>
+    <p>Date: {{ RendezVous.Date }}</p>
+    <p>Heure: {{ RendezVous.Heure }}</p>
+    <p>Patient: {{ RendezVous.Patient.Nom }}</p>
+    <p>Medecin: Dr. {{ RendezVous.Medecin.Nom }}</p>
+    <!-- Add more details as needed -->
+    <a href="{% url 'rendezvous_list' %}">Back to Rendezvous List</a>
+    <a href="{% url 'rendezvous_update' pk=RendezVous.pk %}">Edit</a>
+    <a href="{% url 'rendezvous_delete' pk=RendezVous.pk %}">Delete</a>
+{% endblock %}
+>>>>>>> origin/main

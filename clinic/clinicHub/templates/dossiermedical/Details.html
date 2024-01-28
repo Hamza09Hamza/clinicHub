@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!-- dossiermedical_detail.html -->
 <!DOCTYPE html>
 <html lang="en">
@@ -77,3 +78,20 @@
     <a href="{% url 'dossiermedical_list' %}">Back to Dossier Medical List</a>
   </body>
 </html>
+=======
+{% extends 'dossiermedical/base.html' %}
+
+{% block content %}
+  <h2>Dossier Medical Details</h2>
+  <p>{{ dossiermedical }}</p>
+  <h3>Observations:</h3>
+  {% for observation in dossiermedical.Observations.all %}
+    <p>{{ observation.Description }}</p>
+  {% endfor %}
+
+  <a href="{% url 'update_dossiermedical' pk=dossiermedical.pk %}">Edit</a>
+  <a href="{% url 'delete_dossiermedical' pk=dossiermedical.pk %}">Delete</a>
+  <a href="{% url 'dossiermedical_list' %}">Back to Rendezvous List</a>
+
+{% endblock %}
+>>>>>>> origin/main

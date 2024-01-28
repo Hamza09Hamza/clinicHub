@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!-- rendezvous_list.html -->
 <style>
   body {
@@ -69,3 +70,18 @@
 </ul>
 
 <a class="add-link" href="{% url 'create_rendezvous' %}">Add Rendezvous</a>
+=======
+<!-- templates/patient_list.html -->
+{% extends 'rendezvous/RendezVous.html' %}
+{% block title %}Rendezvous List{% endblock %}
+
+{% block content %}
+    <h2>Rendezvous List</h2>
+    <ul>
+        {% for rendezvous in RendezVous %}
+            <li><a href="{% url 'rendezvous_detail' pk=rendezvous.ID_RDV %}">{{ rendezvous }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'create_rendezvous' %}">Add Rendezvous</a>
+{% endblock %}
+>>>>>>> origin/main

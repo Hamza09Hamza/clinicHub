@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!-- create_dossiermedical.html -->
 <!DOCTYPE html>
 <html lang="en">
@@ -81,3 +82,17 @@
     <a href="{% url 'dossiermedical_list' %}">Back to Dossier Medical List</a>
   </body>
 </html>
+=======
+{% extends 'dossiermedical/base.html' %}
+
+{% block content %}
+  <h2>Create Dossier Medical</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+  </form>
+  <a href="{% url 'dossiermedical_list' %}">Back to Rendezvous List</a>
+
+{% endblock %}
+>>>>>>> origin/main

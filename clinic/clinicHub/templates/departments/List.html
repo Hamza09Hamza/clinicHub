@@ -1,4 +1,5 @@
 <!-- templates/patient_list.html -->
+<<<<<<< HEAD
 {% extends 'departments/Departement.html' %} Department List {% block content %}
 <style>
   body {
@@ -71,3 +72,18 @@
   >Add Department</a
 >
 {% endblock %}
+=======
+{% extends 'departments/Departement.html' %}
+
+{% block title %}Department List{% endblock %}
+
+{% block content %}
+    <h2>Department List</h2>
+    <ul>
+        {% for department in departments %}
+            <li><a href="{% url 'department_detail' pk=department.pk %}">{{ department.NomDepartement }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'create_department' %}">Add Department</a>
+{% endblock %}
+>>>>>>> origin/main

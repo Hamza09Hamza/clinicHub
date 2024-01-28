@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!-- delete_dossiermedical.html -->
 <!DOCTYPE html>
 <html lang="en">
@@ -91,3 +92,16 @@
     <a href="{% url 'dossiermedical_list' %}">Cancel</a>
   </body>
 </html>
+=======
+{% extends 'dossiermedical/base.html' %}
+
+{% block content %}
+  <h2>Delete Dossier Medical</h2>
+  <p>Are you sure you want to delete "{{ dossiermedical }}"?</p>
+  <form method="post" action="{% url 'delete_dossiermedical' pk=dossiermedical.pk %}">
+    {% csrf_token %}
+    <button type="submit">Delete</button>
+  </form>
+  <a href="{% url 'dossiermedical_list' %}">Cancel</a>
+{% endblock %}
+>>>>>>> origin/main

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!-- rendezvous_update.html -->
 <style>
   body {
@@ -73,3 +74,19 @@
 <a class="back-link" href="{% url 'rendezvous_list' %}"
   >Back to Rendezvous List</a
 >
+=======
+<!-- patient_update.html -->
+{% extends 'rendezvous/RendezVous.html' %}
+
+{% block title %}Update Rendezvous{% endblock %}
+
+{% block content %}
+    <h2>Edit Rendezvous</h2>
+    <form method="post" action="{% url 'rendezvous_update' pk=RendezVous.ID_RDV %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update</button>
+    </form>
+    <a href="{% url 'rendezvous_list' %}">Back to Rendezvous List</a>
+{% endblock %}
+>>>>>>> origin/main

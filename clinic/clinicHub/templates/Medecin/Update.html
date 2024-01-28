@@ -1,4 +1,5 @@
 <!-- patient_update.html -->
+<<<<<<< HEAD
 {% extends 'Medecin/Medecin.html' %} Update Doctor {% block content %}
 <style>
   body {
@@ -72,4 +73,18 @@
 </form>
 
 <a class="back-link" href="{% url 'doctor_list' %}">Back to Doctor List</a>
+=======
+{% extends 'Medecin/Medecin.html' %}
+
+{% block title %}Update Doctor{% endblock %}
+
+{% block content %}
+    <h2>Edit Doctor</h2>
+    <form method="post" action="{% url 'doctor_update' pk=doctor.pk %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update</button>
+    </form>
+    <a href="{% url 'doctor_list' %}">Back to Doctor List</a>
+>>>>>>> origin/main
 {% endblock %}

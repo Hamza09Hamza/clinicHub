@@ -1,4 +1,5 @@
 <!-- templates/patient_list.html -->
+<<<<<<< HEAD
 {% extends 'patients/Patients.html' %} Patient List {% block content %}
 <style>
   body {
@@ -74,4 +75,18 @@
   <li><a href="{% url 'patient_detail' pk=patient.pk %}">{{ patient }}</a></li>
   {% endfor %}
 </ul>
+=======
+{% extends 'patients/Patients.html' %}
+
+{% block title %}Patient List{% endblock %}
+
+{% block content %}
+    <a href="{% url 'create_patient' %}">Add Patient</a>
+
+    <ul>
+        {% for patient in patients %}
+            <li><a href="{% url 'patient_detail' pk=patient.pk %}">{{ patient }}</a></li>
+        {% endfor %}
+    </ul>
+>>>>>>> origin/main
 {% endblock %}

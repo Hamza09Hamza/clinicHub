@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!-- create_department.html -->
 {% extends 'departments/Departement.html' %} {% block title %}Create
 Department{% endblock %} {% block content %}
@@ -77,4 +78,20 @@ Department{% endblock %} {% block content %}
 <a class="back-link" href="{% url 'department_list' %}"
   >Back to Department List</a
 >
+=======
+<!-- create_patient.html -->
+
+{% extends 'departments/Departement.html' %}
+{% block title %}Create Department{% endblock %}
+
+{% block content %}
+    <h2>Create a New Department</h2>
+    <form method="post" action="{% url 'create_department' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+    <br>
+    <a href="{% url 'department_list' %}">Back to Department List</a>
+>>>>>>> origin/main
 {% endblock %}

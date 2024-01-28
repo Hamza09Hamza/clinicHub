@@ -1,4 +1,5 @@
 <!-- patient_delete.html -->
+<<<<<<< HEAD
 {% extends 'departments/Departement.html' %} {% block title %}Delete
 Department{% endblock %} {% block content %}
 <style>
@@ -64,4 +65,18 @@ Department{% endblock %} {% block content %}
 </form>
 
 <a class="cancel-link" href="{% url 'department_list' %}">Cancel</a>
+=======
+{% extends 'departments/Departement.html' %}
+
+{% block title %}Delete Department{% endblock %}
+
+{% block content %}
+    <h2>Delete Department</h2>
+    <p>Are you sure you want to delete {{ department.NomDepartement }}?</p>
+    <form method="post" action="{% url 'department_delete' pk=department.pk %}">
+        {% csrf_token %}
+        <button type="submit">Delete</button>
+    </form>
+    <a href="{% url 'department_list' %}">Cancel</a>
+>>>>>>> origin/main
 {% endblock %}
